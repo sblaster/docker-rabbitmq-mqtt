@@ -1,5 +1,8 @@
 FROM rabbitmq:3.6
 
+ENV RABBITMQ_USER user
+ENV RABBITMQ_PASSWORD password
+
 RUN echo "*** User '$RABBITMQ_USER' with password '$RABBITMQ_PASSWORD' completed. ***"
 RUN rabbitmqctl add_user $RABBITMQ_USER $RABBITMQ_PASSWORD 2>/dev/null
 RUN rabbitmqctl set_user_tags $RABBITMQ_USER administrator
